@@ -1,0 +1,1424 @@
+#N canvas 251 43 1003 631 10;
+#X declare -path abstractions;
+#X obj -70 391 hsl 128 15 40 100 0 0 empty empty dry-input-level 8
+8 0 12 -262144 -1 -1 0 1;
+#X obj 173 540 hsl 128 15 40 300 0 0 empty empty master-volume 8 8
+0 12 -262144 -1 -1 2442 1;
+#N canvas 199 135 313 346 input-monitor 0;
+#X obj 45 233 *~;
+#X obj 158 160 dbtorms;
+#X obj 158 181 pack f 40;
+#X obj 158 202 line~;
+#X obj 158 92 moses 41;
+#X obj 158 114 t b;
+#X msg 158 136 0;
+#X obj 45 47 r~ input-sig-\$0;
+#X obj 45 256 throw~ master-sum-\$0;
+#X obj 159 68 r input-monitor-\$0;
+#X connect 0 0 8 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 1;
+#X connect 4 0 5 0;
+#X connect 4 1 1 0;
+#X connect 5 0 6 0;
+#X connect 6 0 1 0;
+#X connect 7 0 0 0;
+#X connect 9 0 4 0;
+#X restore -74 440 pd input-monitor;
+#N canvas 434 174 375 306 granular-out 0;
+#X obj 44 210 *~;
+#X obj 172 123 dbtorms;
+#X obj 172 144 pack f 40;
+#X obj 172 165 line~;
+#X obj 172 55 moses 41;
+#X obj 172 77 t b;
+#X msg 172 99 0;
+#X obj 44 76 hip~ 5;
+#X obj 45 155 *~;
+#N canvas 725 240 450 170 MORE-INFO 0;
+#X text 15 30 The [pd grain-players] subpatch has 32 grain playing
+abstractions. Every time timbreID puts out the index of the best matching
+grain \, it's sent to each of the grain players in sequence and they
+play back the right grain \, appropriately enveloped to avoid clicks.
+;
+#X restore 268 96 pd MORE-INFO;
+#N canvas 381 510 627 450 grain-players 0;
+#X obj 74 305 outlet~;
+#X obj 74 152 f;
+#X obj 104 152 + 1;
+#X obj 74 174 % 32;
+#X obj 74 130 t b f;
+#X obj 74 108 r index-\$0;
+#X obj 74 281 catch~ grain-bus-\$0;
+#X msg 158 187 1 234;
+#X obj 74 194 pack f f \$0;
+#X msg 74 217 \; index-\$1-\$3 \$2 \;;
+#X obj 253 67 grain-playerMultiple 0 \$0;
+#X obj 253 87 grain-playerMultiple 1 \$0;
+#X obj 418 67 grain-playerMultiple 16 \$0;
+#X obj 418 87 grain-playerMultiple 17 \$0;
+#X obj 253 107 grain-playerMultiple 2 \$0;
+#X obj 253 127 grain-playerMultiple 3 \$0;
+#X obj 253 147 grain-playerMultiple 4 \$0;
+#X obj 251 168 grain-playerMultiple 5 \$0;
+#X obj 253 187 grain-playerMultiple 6 \$0;
+#X obj 253 207 grain-playerMultiple 7 \$0;
+#X obj 253 227 grain-playerMultiple 8 \$0;
+#X obj 253 247 grain-playerMultiple 9 \$0;
+#X obj 253 267 grain-playerMultiple 10 \$0;
+#X obj 253 287 grain-playerMultiple 11 \$0;
+#X obj 253 307 grain-playerMultiple 12 \$0;
+#X obj 253 327 grain-playerMultiple 13 \$0;
+#X obj 253 347 grain-playerMultiple 14 \$0;
+#X obj 418 367 grain-playerMultiple 31 \$0;
+#X obj 418 347 grain-playerMultiple 30 \$0;
+#X obj 418 327 grain-playerMultiple 29 \$0;
+#X obj 418 307 grain-playerMultiple 28 \$0;
+#X obj 418 287 grain-playerMultiple 27 \$0;
+#X obj 418 267 grain-playerMultiple 26 \$0;
+#X obj 418 247 grain-playerMultiple 25 \$0;
+#X obj 418 227 grain-playerMultiple 24 \$0;
+#X obj 418 207 grain-playerMultiple 23 \$0;
+#X obj 418 187 grain-playerMultiple 22 \$0;
+#X obj 418 166 grain-playerMultiple 21 \$0;
+#X obj 418 147 grain-playerMultiple 20 \$0;
+#X obj 418 127 grain-playerMultiple 19 \$0;
+#X obj 418 107 grain-playerMultiple 18 \$0;
+#X obj 253 367 grain-playerMultiple 15 \$0;
+#X connect 1 0 2 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 1;
+#X connect 3 0 8 0;
+#X connect 4 0 1 0;
+#X connect 4 1 8 1;
+#X connect 5 0 4 0;
+#X connect 6 0 0 0;
+#X connect 7 0 9 0;
+#X connect 8 0 9 0;
+#X restore 44 39 pd grain-players;
+#X obj 44 283 throw~ master-sum-\$0;
+#X obj 61 100 r~ env-mul-\$0;
+#X obj 172 26 r concat-level-\$0;
+#X connect 0 0 11 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 1;
+#X connect 4 0 5 0;
+#X connect 4 1 1 0;
+#X connect 5 0 6 0;
+#X connect 6 0 1 0;
+#X connect 7 0 8 0;
+#X connect 8 0 0 0;
+#X connect 10 0 7 0;
+#X connect 12 0 8 1;
+#X connect 13 0 4 0;
+#X restore 178 319 pd granular-out;
+#X obj 179 277 hsl 128 15 40 100 0 0 empty empty granular-level 8 8
+0 12 -262144 -1 -1 12700 1;
+#X text -77 346 Mixing controls;
+#X obj -114 -7 cnv 10 400 10 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj -114 -7 cnv 10 10 400 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj -45 201 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X text -80 137 Go live instead;
+#N canvas 83 415 438 404 master-out 0;
+#X obj 42 178 *~;
+#X obj 177 101 dbtorms;
+#X obj 177 122 pack f 40;
+#X obj 177 143 line~;
+#X obj 177 33 moses 41;
+#X obj 177 55 t b;
+#X msg 177 77 0;
+#X obj 42 10 catch~ master-sum-\$0;
+#X obj 177 11 r master-volume-\$0;
+#X obj 43 321 dac~ \$2;
+#X obj 14 347 outlet~;
+#X obj 81 190 r mode;
+#X obj 81 212 sel 0;
+#X obj 81 260 line~;
+#X msg 134 236 1 20;
+#X msg 81 235 0 100;
+#X obj 43 291 *~ 1;
+#X obj 145 289 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X text 251 266 Activate input;
+#X obj 145 267 r activateout-\$0;
+#X obj 244 296 r activate-out-sem-\$0;
+#X obj 220 350 f;
+#X obj 243 319 sel 1;
+#X obj 291 351 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X connect 0 0 16 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 1;
+#X connect 4 0 5 0;
+#X connect 4 1 1 0;
+#X connect 5 0 6 0;
+#X connect 6 0 1 0;
+#X connect 7 0 0 0;
+#X connect 8 0 4 0;
+#X connect 11 0 12 0;
+#X connect 12 0 15 0;
+#X connect 12 1 14 0;
+#X connect 14 0 13 0;
+#X connect 15 0 13 0;
+#X connect 16 0 9 0;
+#X connect 16 0 10 0;
+#X connect 17 0 16 1;
+#X connect 19 0 17 0;
+#X connect 19 0 21 1;
+#X connect 20 0 22 0;
+#X connect 21 0 17 0;
+#X connect 22 0 21 0;
+#X restore -68 503 pd master-out;
+#X obj 418 103 cnv 15 450 375 empty empty empty 20 12 0 14 -228856
+-66577 0;
+#X obj 657 263 tgl 15 0 empty empty Analyze-input 17 7 0 12 -262144
+-1 -1 0 1;
+#X text 400 68 Master controls;
+#X obj 456 110 bng 15 250 50 0 empty empty Load-default-sound 17 7
+0 12 -262144 -1 -1;
+#X obj 465 324 tgl 15 0 empty empty Normalize 17 7 0 12 -262144 -1
+-1 0 1;
+#N canvas 111 189 2282 851 load-source-sound 0;
+#X obj 33 35 inlet;
+#X obj 91 35 inlet;
+#X obj 33 457 soundfiler;
+#X obj 91 144 openpanel;
+#X obj 439 54 table sample-\$0;
+#X obj 33 497 s sf-length-\$0;
+#X obj 91 336 pack s \$0;
+#X obj 32 61 pack f \$0;
+#X msg 33 86 read -resize -maxsize 2.7e+07 ../sound/string-corpus.wav
+sample-\$2;
+#X msg 91 390 read -resize -maxsize 5.8212e+08 \$1 sample-\$2;
+#X obj 147 172 r soundfile-set-\$0;
+#X msg 147 238 bang;
+#X obj 147 265 s reset_track-\$0;
+#X obj 254 284 s activate-\$0;
+#X msg 254 261 0;
+#X obj 192 534 outlet;
+#X obj 120 123 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 190 483 bang;
+#X obj 192 508 del 500;
+#X obj 266 511 s new-analysis-\$0;
+#X obj 127 287 print *************;
+#X obj 89 415 print ********;
+#X msg 254 238 bang;
+#X text 291 235 deactivate first;
+#X obj 344 284 s activatein-\$0;
+#X obj 449 283 s activateout-\$0;
+#X obj 569 226 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 418 34 the samples container:;
+#X text 298 66 example:;
+#X obj 568 275 s main-clock-\$0;
+#X msg 569 253 0;
+#X text 594 238 stop analysis;
+#N canvas 1268 816 450 300 manytables 0;
+#X obj 42 45 table sample-\$0-1;
+#X obj 42 23 table sample-\$0-0;
+#X obj 42 65 table sample-\$0-2;
+#X obj 42 87 table sample-\$0-3;
+#X obj 42 107 table sample-\$0-4;
+#X obj 42 129 table sample-\$0-5;
+#X obj 42 149 table sample-\$0-6;
+#X obj 42 171 table sample-\$0-7;
+#X obj 42 190 table sample-\$0-8;
+#X obj 42 212 table sample-\$0-9;
+#X obj 170 24 table sample-\$0-10;
+#X obj 170 46 table sample-\$0-11;
+#X obj 170 66 table sample-\$0-12;
+#X obj 170 88 table sample-\$0-13;
+#X obj 170 108 table sample-\$0-14;
+#X obj 170 130 table sample-\$0-15;
+#X obj 170 150 table sample-\$0-16;
+#X obj 170 172 table sample-\$0-17;
+#X obj 170 191 table sample-\$0-18;
+#X obj 170 213 table sample-\$0-19;
+#X restore 574 54 pd manytables;
+#X obj 786 33 r projectName;
+#X obj 786 94 list;
+#X msg 786 497 read -resize -maxsize 5.8212e+08 \$1 sample-\$2-\$3
+;
+#X text 834 523 divide it into multiple tables \, like a polyphonnic
+synth;
+#X msg 786 158 symbol ../../projects/\$1/ch\$2/*.wav;
+#X obj 787 121 list append;
+#X obj 850 100 list;
+#X obj 850 76 r outputChannel-\$0;
+#X obj 853 218 print files_found_at_project;
+#X obj 955 362 f;
+#X obj 955 392 + 1;
+#X floatatom 955 423 5 0 0 0 - - -;
+#X msg 981 301 bang;
+#X msg 981 326 0;
+#X text 1017 302 if new project reset to 0;
+#X obj 786 333 list append \$0;
+#X msg 942 301 bang;
+#X obj 786 408 list append 0;
+#X obj 786 542 soundfiler;
+#X text 271 170 -- when we receive a new soundfile from the composer
+for analyzing;
+#X text 877 31 These tables will be used when playing a sequence;
+#X text 879 48 of presets with the GUI composer;
+#X text 571 35 the ones for performing:;
+#X obj 1409 594 msgfile;
+#X obj 1411 513 loadbang;
+#X msg 1411 535 clear;
+#X msg 1321 519 add \$1 \$3;
+#X msg 1382 386 write;
+#X obj 1382 419 list append;
+#X obj 1479 257 loadbang;
+#X obj 1479 278 delay 1500;
+#X obj 1491 397 print ruta;
+#X obj 1382 363 delay 1000;
+#X msg 1478 304 symbol ../../projects;
+#X obj 1382 443 list trim;
+#X text 1346 223 Store in a file in which table I have loaded each
+soundfile of the project;
+#X text 1130 488 the message containing path + table number;
+#X text 1446 440 send the write command to save file;
+#X text 785 2 At startup - Load all project soundfiles into different
+tables \, starting from 0;
+#X obj 1865 49 r presetsoundfile-set-\$0;
+#X msg 1743 176 symbol ../../projects;
+#X msg 1791 99 bang;
+#X obj 1791 121 delay 100;
+#X text 1768 31 gets soundfile from a preset change;
+#X text 1832 259 here we get the absolute path already;
+#X msg 1726 509 rewind;
+#X obj 1710 411 list append;
+#X obj 1710 435 list trim;
+#X msg 1710 378 read;
+#X text 1745 377 1 read list.txt;
+#X text 1787 509 2 rewind;
+#X obj 1726 486 delay 50;
+#X msg 1726 463 bang;
+#X text 1944 506 3 find the file;
+#X text 1487 630 4 get the line where it found the file \, it is the
+table line;
+#X obj 1869 525 list append;
+#X obj 1869 549 list trim;
+#X msg 1869 503 find;
+#X msg 1869 479 bang;
+#X obj 1409 617 list split 1;
+#X obj 1443 698 s arrayPreset-\$0;
+#X obj 1878 144 s main-clock-\$0;
+#X msg 1879 122 0;
+#X msg 1879 92 bang;
+#X text 1910 115 stop live analysis;
+#X obj 1474 482 r projectchange;
+#X obj 1474 503 sel 1;
+#X obj 1927 74 r projectchange;
+#X obj 1927 95 sel 1;
+#N canvas 581 620 906 460 loadTimid 0;
+#X obj 50 25 inlet;
+#X msg 50 50 bang;
+#X msg 50 75 clear;
+#X obj 50 96 s \$0-tID;
+#X obj 195 300 s \$0-tID;
+#X obj 230 25 inlet;
+#X text 209 6 path to project;
+#X obj 437 21 r presetsoundfile-set-\$0;
+#X msg 337 12 bang;
+#X obj 195 252 list append;
+#X obj 195 276 list trim;
+#X msg 195 225 read;
+#X text 502 46 receveive soundfile name;
+#X obj 117 342 outlet;
+#X msg 117 296 bang;
+#X obj 337 82 symbol;
+#X obj 230 46 l2s;
+#X obj 337 49 delay 150;
+#X obj 195 199 delay 200;
+#X msg 195 172 bang;
+#X obj 117 319 delay 500;
+#X obj 515 106 s loading-timid-\$0;
+#X msg 520 83 bang;
+#X obj 306 303 print loaded-TIMID;
+#X obj 194 151 spigot;
+#X obj 227 109 r hasSound-\$0;
+#X text 167 80 if there is no sound;
+#X text 166 93 it should not load database;
+#X obj 266 145 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 338 105 cyclone/sprintf %s%s.timid;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 5 0 16 0;
+#X connect 7 0 8 0;
+#X connect 7 0 22 0;
+#X connect 7 0 29 1;
+#X connect 8 0 17 0;
+#X connect 9 0 10 0;
+#X connect 10 0 4 0;
+#X connect 10 0 14 0;
+#X connect 10 0 23 0;
+#X connect 11 0 9 0;
+#X connect 14 0 20 0;
+#X connect 15 0 29 0;
+#X connect 16 0 15 1;
+#X connect 17 0 15 0;
+#X connect 18 0 11 0;
+#X connect 19 0 18 0;
+#X connect 20 0 13 0;
+#X connect 22 0 21 0;
+#X connect 24 0 19 0;
+#X connect 25 0 24 1;
+#X connect 25 0 28 0;
+#X connect 29 0 9 1;
+#X connect 29 0 24 0;
+#X restore 1217 686 pd loadTimid;
+#X text 1397 740 send to normalize and activate;
+#X obj 1153 743 tgl 15 0 empty empty Normalize 17 7 0 12 -262144 -1
+-1 0 1;
+#X obj 1153 760 s normalize-\$0;
+#X msg 1153 712 1;
+#X obj 1030 738 tgl 15 0 empty empty Analyze-input 17 7 0 12 -262144
+-1 -1 0 1;
+#X obj 1030 759 s analyzeInput-\$0;
+#X obj 912 761 s env-follow-\$0;
+#X obj 912 739 tgl 15 0 empty empty Env-following 17 7 0 12 -262144
+-1 -1 0 1;
+#X obj 1272 793 s main-clock-\$0;
+#X obj 1272 748 delay 500;
+#X msg 1272 724 bang;
+#X msg 1272 770 1;
+#X text 1548 698 set the array name for the grain players;
+#X obj 1454 673 print new-assigned-table-\$2;
+#X text 850 659 once we get the array name we can load the analysis
+file and start playing;
+#N canvas 265 636 447 191 hasSound 0;
+#X obj 31 18 inlet;
+#X obj 232 23 inlet;
+#X text 70 20 path request bang;
+#X msg 31 56 bang;
+#X msg 231 47 bang;
+#X msg 233 92 1;
+#X msg 31 80 0;
+#X obj 31 141 s hasSound-\$0;
+#X text 222 125 there is a soundfile;
+#X obj 129 142 print hasSound-\$2;
+#X text 280 22 path answer bang;
+#X text 222 109 if there an answer from msgfile;
+#X connect 0 0 3 0;
+#X connect 1 0 4 0;
+#X connect 3 0 6 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 5 0 9 0;
+#X connect 6 0 7 0;
+#X connect 6 0 9 0;
+#X restore 1859 690 pd hasSound;
+#X obj 2042 106 print heeeey-\$2;
+#X obj 782 756 s request-data;
+#X msg 782 700 bang;
+#X obj 782 726 delay 500;
+#X obj 786 189 hcs/folder_list;
+#X obj 1477 326 hcs/folder_list;
+#X obj 1477 363 cyclone/sprintf %s/%s/ch%d/list.txt;
+#X obj 1286 647 cyclone/sprintf %s/%s/;
+#X obj 1443 650 cyclone/sprintf sample-\$0-%d;
+#X obj 1742 235 cyclone/sprintf %s/%s/ch%d/%s;
+#X obj 1742 198 hcs/folder_list;
+#X connect 0 0 7 0;
+#X connect 1 0 3 0;
+#X connect 2 0 5 0;
+#X connect 2 0 17 0;
+#X connect 3 0 6 0;
+#X connect 6 0 9 0;
+#X connect 7 0 8 0;
+#X connect 8 0 2 0;
+#X connect 9 0 2 0;
+#X connect 9 0 21 0;
+#X connect 10 0 6 0;
+#X connect 10 0 11 0;
+#X connect 10 0 22 0;
+#X connect 10 0 26 0;
+#X connect 11 0 12 0;
+#X connect 11 0 20 0;
+#X connect 14 0 13 0;
+#X connect 14 0 24 0;
+#X connect 14 0 25 0;
+#X connect 16 0 3 0;
+#X connect 17 0 18 0;
+#X connect 17 0 19 0;
+#X connect 18 0 15 0;
+#X connect 22 0 14 0;
+#X connect 26 0 30 0;
+#X connect 30 0 29 0;
+#X connect 33 0 34 0;
+#X connect 33 0 45 0;
+#X connect 33 0 125 1;
+#X connect 33 0 126 1;
+#X connect 33 0 128 1;
+#X connect 34 0 38 0;
+#X connect 35 0 51 0;
+#X connect 37 0 123 0;
+#X connect 38 0 37 0;
+#X connect 39 0 38 1;
+#X connect 40 0 39 0;
+#X connect 40 0 125 2;
+#X connect 40 0 128 2;
+#X connect 42 0 43 0;
+#X connect 43 0 42 1;
+#X connect 43 0 44 0;
+#X connect 43 0 50 1;
+#X connect 45 0 46 0;
+#X connect 46 0 42 1;
+#X connect 48 0 50 0;
+#X connect 49 0 42 0;
+#X connect 50 0 35 0;
+#X connect 50 0 59 0;
+#X connect 56 0 92 0;
+#X connect 57 0 58 0;
+#X connect 58 0 56 0;
+#X connect 59 0 56 0;
+#X connect 60 0 61 0;
+#X connect 61 0 67 0;
+#X connect 62 0 63 0;
+#X connect 63 0 66 0;
+#X connect 63 0 65 0;
+#X connect 65 0 60 0;
+#X connect 66 0 124 0;
+#X connect 67 0 56 0;
+#X connect 72 0 74 0;
+#X connect 72 0 96 0;
+#X connect 72 0 119 0;
+#X connect 72 0 118 0;
+#X connect 72 0 128 3;
+#X connect 73 0 129 0;
+#X connect 74 0 75 0;
+#X connect 74 0 81 0;
+#X connect 75 0 73 0;
+#X connect 78 0 56 0;
+#X connect 79 0 80 0;
+#X connect 80 0 56 0;
+#X connect 80 0 85 0;
+#X connect 81 0 79 0;
+#X connect 84 0 78 0;
+#X connect 85 0 84 0;
+#X connect 88 0 89 0;
+#X connect 89 0 56 0;
+#X connect 90 0 88 0;
+#X connect 91 0 90 0;
+#X connect 92 1 118 1;
+#X connect 92 1 127 0;
+#X connect 95 0 94 0;
+#X connect 96 0 95 0;
+#X connect 98 0 99 0;
+#X connect 99 0 58 0;
+#X connect 100 0 101 0;
+#X connect 101 0 95 0;
+#X connect 102 0 106 0;
+#X connect 104 0 105 0;
+#X connect 106 0 104 0;
+#X connect 106 0 107 0;
+#X connect 106 0 110 0;
+#X connect 106 0 113 0;
+#X connect 106 0 121 0;
+#X connect 107 0 108 0;
+#X connect 110 0 109 0;
+#X connect 112 0 114 0;
+#X connect 113 0 112 0;
+#X connect 114 0 111 0;
+#X connect 121 0 122 0;
+#X connect 122 0 120 0;
+#X connect 123 0 41 0;
+#X connect 123 0 48 0;
+#X connect 123 0 49 0;
+#X connect 124 0 125 0;
+#X connect 124 0 126 0;
+#X connect 125 0 61 1;
+#X connect 125 0 79 1;
+#X connect 126 0 102 1;
+#X connect 127 0 93 0;
+#X connect 127 0 102 0;
+#X connect 127 0 116 0;
+#X connect 128 0 88 1;
+#X connect 128 0 91 0;
+#X connect 129 0 128 0;
+#X restore 456 185 pd load-source-sound;
+#N canvas 431 267 767 607 analyze-source-sound 0;
+#X obj 344 154 cnv 15 200 30 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 354 160 Write analysis info;
+#X msg 85 411 normalize 0;
+#X obj 32 6 inlet;
+#X msg 33 365 analyze \$1 \$2;
+#X obj 33 344 pack f f;
+#X obj 13 234 until;
+#X msg 59 236 0;
+#X obj 158 90 t f f;
+#X text 342 72 This sub-patch does source training analysis in non
+real time. When it finishes you can save the results to an analysis
+database file that you can load next time.;
+#X msg 147 225 clear;
+#X obj 33 126 t b b b;
+#X obj 344 436 s \$0-tID;
+#X obj 33 466 s \$0-tID;
+#X obj 147 246 s \$0-tID;
+#X obj 13 213 f;
+#X obj 33 285 f;
+#X obj 158 69 /;
+#X obj 165 155 /;
+#X obj 63 285 +;
+#X obj 353 256 bng 15 250 50 0 empty empty Store 17 7 0 12 -258113
+-1 -1;
+#X obj 158 18 r analysis-window-size-\$0;
+#X obj 173 39 r analysis-overlap-\$0;
+#X obj 165 125 r sf-length-\$0;
+#X obj 86 318 r analysis-window-size-\$0;
+#X obj 85 390 r lb1-\$0;
+#X obj 33 445 bfcc sample-\$0 0.25;
+#X obj 32 82 del 100;
+#X obj 57 55 s activate-\$0;
+#X msg 57 33 0;
+#X text 81 13 deactivate;
+#X text 82 25 before;
+#X text 82 37 analysis;
+#X obj 147 197 r clear-analysis-\$0;
+#X obj 177 431 print steps;
+#X obj 374 302 r soundfilename-set-\$0;
+#X obj 353 330 list;
+#X obj 417 324 r projectName;
+#X obj 417 345 list;
+#X obj 354 368 list append;
+#X msg 343 403 write ../../projects/\$2/\$1.timid;
+#X text 552 405 save at project folder;
+#X text 553 420 with soundfileName + .timid;
+#X obj 353 235 r store-database-\$0;
+#X connect 2 0 26 0;
+#X connect 3 0 29 0;
+#X connect 3 0 27 0;
+#X connect 4 0 26 0;
+#X connect 5 0 4 0;
+#X connect 6 0 16 0;
+#X connect 7 0 16 1;
+#X connect 8 0 19 1;
+#X connect 8 1 18 1;
+#X connect 10 0 14 0;
+#X connect 11 0 15 0;
+#X connect 11 1 7 0;
+#X connect 11 2 10 0;
+#X connect 15 0 6 0;
+#X connect 16 0 5 0;
+#X connect 16 0 19 0;
+#X connect 17 0 8 0;
+#X connect 18 0 15 1;
+#X connect 19 0 16 1;
+#X connect 20 0 36 0;
+#X connect 21 0 17 0;
+#X connect 22 0 17 1;
+#X connect 23 0 18 0;
+#X connect 24 0 5 1;
+#X connect 25 0 2 0;
+#X connect 26 0 13 0;
+#X connect 27 0 11 0;
+#X connect 29 0 28 0;
+#X connect 33 0 10 0;
+#X connect 35 0 36 1;
+#X connect 36 0 39 0;
+#X connect 37 0 38 0;
+#X connect 38 0 39 1;
+#X connect 39 0 40 0;
+#X connect 40 0 12 0;
+#X connect 43 0 20 0;
+#X restore 478 254 pd analyze-source-sound;
+#N canvas 842 83 470 427 MORE-INFO 0;
+#X text 16 10 The controls in this panel do all the setup. Load a source
+sound file \, then analyze it. Depending on the file \, this will likely
+take a few seconds. You can store the analysis results to a .timid
+file with the "Store" button inside [pd analyze-source-sound].;
+#X text 16 91 Be sure to check the "Normalize" toggle - this tells
+timbreID to normalize the columns of the BFCC feature database \, and
+it definitely improves the matching in this example. Like the analysis
+step \, this may take a second or two to process.;
+#X text 16 165 The other toggles start/stop input analysis and activate
+the envelope following option.. The former checkbox will have a sudden
+impact on your CPU load \, so activate it with caution. If you have
+a slower computer and it can't keep up \, turn analysis off and try
+some more modest settings in the [pd analysis-controls] sub-patch.
+;
+#X text 16 255 If you turn on "Env-following" \, the output amplitude
+will follow a varying level generated based on the input sound. That
+way \, the amplitude envelope of the input and output signals will
+match \, which should also be taken into account when trying to make
+the signals sound similar. Note that the overall level of the synthetic
+output will be a lot lower with envelope following on. You'll have
+to boost it a bit. Envelope following isn't really necessary with the
+default sound set since it has a little bit of silence itself. When
+the input is silent \, timbreID finds grains from the corpus that are
+also silent!;
+#X restore 784 109 pd MORE-INFO;
+#X obj 718 308 tgl 15 0 empty empty Env-following 17 7 0 12 -262144
+-1 -1 0 1;
+#N canvas 663 613 394 426 env-follower 0;
+#X msg 71 159 0;
+#X floatatom 162 115 8 0 0 0 - - -;
+#X obj 71 316 line~;
+#X obj 71 116 dbtorms;
+#X msg 226 231 1;
+#X msg 271 204 1;
+#X obj 226 129 inlet;
+#X obj 226 150 t b b f f;
+#X obj 121 233 spigot 0;
+#X obj 226 251 spigot 1;
+#X msg 16 199 1;
+#X obj 145 163 t f b;
+#X obj 271 225 -;
+#X obj 71 20 r~ input-sig-\$0;
+#X obj 16 177 r lb1-\$0;
+#X obj 71 341 s~ env-mul-\$0;
+#X obj 71 138 moses 0.0005;
+#X obj 71 40 env~ 1024 64;
+#X obj 183 334 rmstodb;
+#X floatatom 183 358 5 0 0 0 - - -;
+#X obj 151 90 dbtorms;
+#X floatatom 210 66 5 0 0 0 - - -;
+#X obj 153 43 loadbang;
+#X floatatom 230 283 5 0 0 0 - - -;
+#X obj 211 41 inlet;
+#X text 255 42 threshold;
+#X msg 151 65 45;
+#X obj 72 295 pack 0 10;
+#X connect 0 0 27 0;
+#X connect 2 0 15 0;
+#X connect 3 0 16 0;
+#X connect 4 0 9 0;
+#X connect 5 0 12 0;
+#X connect 6 0 7 0;
+#X connect 7 0 4 0;
+#X connect 7 1 5 0;
+#X connect 7 2 12 1;
+#X connect 7 3 8 1;
+#X connect 8 0 27 0;
+#X connect 9 0 23 0;
+#X connect 9 0 27 0;
+#X connect 10 0 27 0;
+#X connect 11 0 8 0;
+#X connect 11 1 4 0;
+#X connect 12 0 9 1;
+#X connect 13 0 17 0;
+#X connect 14 0 10 0;
+#X connect 16 0 0 0;
+#X connect 16 1 11 0;
+#X connect 17 0 3 0;
+#X connect 18 0 19 0;
+#X connect 20 0 1 0;
+#X connect 20 0 16 1;
+#X connect 21 0 20 0;
+#X connect 22 0 26 0;
+#X connect 24 0 21 0;
+#X connect 26 0 20 0;
+#X connect 27 0 2 0;
+#X connect 27 0 18 0;
+#X restore 764 378 pd env-follower;
+#X obj 170 106 cnv 15 175 100 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#N canvas 822 140 756 853 live-analysis 0;
+#X obj 378 10 cnv 15 170 70 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 24 453 timbreID;
+#X obj 378 351 cnv 15 300 100 empty empty empty 20 12 0 14 -228856
+-66577 0;
+#X obj 378 90 cnv 15 300 250 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X msg 387 252 clear;
+#X msg 464 183 normalize \$1;
+#X msg 471 207 variance;
+#X msg 499 253 order_attributes;
+#X text 388 100 General timbreID settings;
+#X obj 213 117 / 44100;
+#X obj 213 138 * 1000;
+#X msg 123 270 window \$1;
+#X text 386 12 Detailed explanation \; of analysis settings:;
+#X msg 511 276 attribute_range 0 94;
+#X text 84 432 <--third inlet is specifically designed for taking concatenative
+synthesis identification reqests. See timbreID help file for function
+of all inlets/outlets.;
+#X msg 136 317 normalize 0;
+#X msg 608 407 read \$1;
+#X obj 584 385 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 608 384 openpanel;
+#X obj 24 426 r \$0-tID;
+#X obj 441 307 s \$0-tID;
+#X obj 608 430 s \$0-tID;
+#X obj 213 93 /;
+#X obj 69 354 bfcc~ 4096 0.25;
+#X obj 85 157 metro;
+#X obj 153 163 t b;
+#N canvas 179 300 927 466 MORE-INFO 0;
+#X text 465 255 Simple arithmetic will give you the information you
+need to make an informed choice. At a sampling rate of 44100 \, 4096
+samples represents 92 milliseconds (4096/44100). If your source sound
+has frequent and significant changes in timbre that happen faster than
+this \, maybe it's worth doing an overlap of 2 to bring your time resolution
+down to 46 milliseconds. These kinds of choices depend entirely on
+the sound being analyzed and what your hardware can actually handle
+when you're eventually doing synthesis in real time.;
+#X text 467 383 The [pd init] sub-patch in the parent patch lets you
+specify both analysis and synthesis window-size/overlap. These two
+pairs of parameters are totally independent.;
+#X text 17 15 In this environment \, you can experiment with a variety
+of analysis settings. The first thing to establish is the rate of the
+metro that bangs the feature generation object (in this case \, [bfcc~]).
+For this patch \, the metro is set relative to the window size divided
+by the overlap. For instance \, with a window size of 4096 samples
+and an overlap of 4 \, an analysis should be performed every 1024 samples
+\, or 23.22 milliseconds.;
+#X text 17 135 During synthesis \, it makes a lot of sense for the
+grain players to be updating their grain locations at the same rate
+that timbreID is pumping out match results. Basically \, the analysis
+rate should match the grain update rate. To analyze more frequently
+than grains update would be wasteful (the information wouldn't be used
+anyway). Analyzing at a slower rate isn't wasteful \, but it means
+that two consecutive grains might be identical (which might sound bad).
+;
+#X text 17 265 This patch takes care of the analysis rate for you.
+Setting overlap and window-size in the parent patch's [pd init] sub-patch
+automatically updates the speed of the metro to the correct value.
+The arithmetic for finding the correct value is shown in this patch.
+;
+#X text 465 5 Notice that a [normalize 0( message was sent to bfcc~
+to turn spectrum normalization off. This might not be the right choice
+for all situations \, but for these sounds \, the best results came
+from turning normalization off for both training analysis of the sound
+source \, and live analysis during synthesis.;
+#X text 465 97 The final point regards the rate of analysis during
+training. Training is done in the parent patch using timbreID's non-real-time
+analysis objects. The window size during training and synthesis should
+be identical. However \, the overlap rate is up to you. With the window
+size of 4096 used here \, it's perfectly fine for your training analysis
+to have no overlap at all (i.e. \, an overlap of 1). The consequence
+is simply that you'll have fewer grains to choose from. A higher overlap
+means you'll have more grains \, but neighboring grains might be extremely
+similar to each other.;
+#X restore 417 53 pd MORE-INFO;
+#N canvas 798 139 460 445 MORE-INFO 0;
+#X text 16 11 These messages are all explained in the main timbreID
+help file \, but here's a quick rundown:;
+#X text 16 181 "variance" reorders feature attributes (e.g. \, BFCC
+attributes) according to variance. The attributes that vary most will
+be put at the beginning. Then \, using the "attribute_range" message
+\, you can tell timbreID to use only a small subset of attributes for
+the distance measure. This saves calculations. Often \, after calculating
+variance and specifying [attribute_range 0 19( \, accuracy is about
+the same and CPU load will be lower.;
+#X text 16 301 To restore the regular attribute ordering after calculating
+variance \, send the "order_attributes" message. Then restore the normal
+attribute range with a [attribute_range 0 94( message.;
+#X text 16 51 "normalize" normalizes each attribute of the feature
+database used for matching. In this case it's BFCCs \, so each attribute
+of the BFCC vector is normalized to the 0-1 range. The effect is that
+all attributes have the same potential to impact the distance measure.
+Generally \, it's a good idea to normalize. With the large analysis
+data sets we're using \, normalizing will take a few seconds. You'll
+see feedback in Pd's post window when the calculation is complete.
+;
+#X text 16 361 You might also try using the "attribute_range" message
+without doing the variance calculation. For instance \, it probably
+isn't necessary to use all 47 BFCCs. Try 0-12 instead and see how it
+impacts accuracy.;
+#X restore 577 128 pd MORE-INFO;
+#N canvas 841 54 444 199 MORE-INFO 0;
+#X text 18 13 After analyzing a source sound file in the parent patch
+\, you can store the analysis information to a binary file. If you
+analyze a few different source sound files \, you can load their analysis
+files here rather than analyze directly each time.;
+#X text 18 103 Analysis files are loaded using timbreID's "read" message.
+Since the files we're dealing with here are large (thousands of analysis
+frames) \, loading may take a few seconds.;
+#X restore 591 357 pd MORE-INFO;
+#X obj 477 158 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 410 352 Read a stored analysis file;
+#X msg 483 230 attribute_range 0 46;
+#X obj 73 27 r~ input-sig-\$0;
+#X obj 213 29 r synth-window-size-\$0;
+#X obj 228 49 r synth-overlap-\$0;
+#X obj 153 183 s zero_phase-\$0;
+#X obj 123 249 r synth-window-size-\$0;
+#X obj 136 296 r lb1-\$0;
+#X obj 24 652 s index-\$0;
+#X obj 464 133 r normalize-\$0;
+#X obj 236 640 s neighboorhoodMax-\$0;
+#X obj 95 122 f;
+#X floatatom 212 672 5 0 0 0 - - -;
+#X obj 433 365 r analyze;
+#X obj 433 391 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 432 410 read database/mix.timid;
+#X obj 411 626 change;
+#X msg 434 672 1;
+#X obj 396 726 f;
+#X obj 396 772 ==;
+#X msg 467 671 0;
+#X obj 411 749 f;
+#X obj 433 649 del 100;
+#X obj 396 797 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 384 683 t b f;
+#X obj 396 817 change;
+#X text 468 625 detect end of analysis;
+#X text 508 693 if after 2 seconds after the last;
+#X text 509 710 change nothing changes analysis;
+#X text 507 724 is finished;
+#X obj 483 779 sel 1;
+#X obj 483 821 s endedAnalysis-\$0;
+#X msg 483 799 1;
+#X text 603 819 Normalize!;
+#X obj 76 527 spigot;
+#X obj 109 482 loadbang;
+#X msg 109 504 1;
+#X obj 168 483 r endedAnalysis-\$0;
+#X obj 168 504 sel 1;
+#X msg 168 526 0;
+#X text 212 504 if analyzed;
+#X text 201 523 stop tracking;
+#X text 523 779 send message and stop timer;
+#X msg 302 548 1;
+#X obj 287 483 r analyze-\$0;
+#X text 325 505 if new analysis;
+#X msg 287 572 bang;
+#X obj 89 65 r analyzeInput-\$0;
+#X obj 388 486 r new-analysis-\$0;
+#X text 327 518 track again!;
+#X obj 170 554 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 79 558 5 0 0 0 - - -;
+#X floatatom 41 632 5 0 0 0 - - -;
+#X msg 454 737 0;
+#X obj 434 694 metro 2000;
+#X obj 89 91 del 100;
+#X obj 223 70 t b f;
+#X msg 499 385 clear!!!;
+#X obj 85 228 spigot;
+#X obj 279 192 r main-clock-\$0;
+#X obj 149 392 r loading-timid-\$0;
+#X msg 151 415 0;
+#X obj 69 387 spigot;
+#X obj -15 610 moses 2;
+#X obj 236 597 mapping/track_max;
+#X connect 1 0 64 0;
+#X connect 1 0 93 0;
+#X connect 4 0 20 0;
+#X connect 5 0 20 0;
+#X connect 6 0 20 0;
+#X connect 7 0 20 0;
+#X connect 9 0 10 0;
+#X connect 10 0 24 1;
+#X connect 11 0 23 0;
+#X connect 13 0 20 0;
+#X connect 15 0 23 0;
+#X connect 16 0 21 0;
+#X connect 17 0 18 0;
+#X connect 18 0 16 0;
+#X connect 19 0 1 0;
+#X connect 22 0 9 0;
+#X connect 23 0 92 0;
+#X connect 24 0 88 0;
+#X connect 25 0 35 0;
+#X connect 31 0 20 0;
+#X connect 32 0 23 0;
+#X connect 33 0 22 0;
+#X connect 34 0 86 0;
+#X connect 36 0 11 0;
+#X connect 37 0 15 0;
+#X connect 39 0 29 0;
+#X connect 39 0 5 0;
+#X connect 41 0 24 0;
+#X connect 41 0 25 0;
+#X connect 44 0 45 0;
+#X connect 45 0 21 0;
+#X connect 46 0 52 0;
+#X connect 46 0 54 0;
+#X connect 46 0 51 1;
+#X connect 47 0 84 0;
+#X connect 48 0 49 0;
+#X connect 49 0 53 0;
+#X connect 50 0 84 0;
+#X connect 51 0 49 1;
+#X connect 52 0 47 0;
+#X connect 53 0 55 0;
+#X connect 54 0 48 0;
+#X connect 54 1 48 1;
+#X connect 55 0 60 0;
+#X connect 60 0 62 0;
+#X connect 60 0 50 0;
+#X connect 60 0 83 0;
+#X connect 62 0 61 0;
+#X connect 64 0 81 0;
+#X connect 64 0 94 0;
+#X connect 65 0 66 0;
+#X connect 66 0 64 1;
+#X connect 67 0 68 0;
+#X connect 68 0 69 0;
+#X connect 69 0 80 0;
+#X connect 69 0 64 1;
+#X connect 73 0 64 1;
+#X connect 74 0 73 0;
+#X connect 74 0 76 0;
+#X connect 76 0 94 2;
+#X connect 77 0 41 1;
+#X connect 77 0 85 0;
+#X connect 78 0 73 0;
+#X connect 78 0 76 0;
+#X connect 83 0 48 1;
+#X connect 83 0 51 1;
+#X connect 84 0 48 0;
+#X connect 84 0 51 0;
+#X connect 85 0 41 0;
+#X connect 86 0 22 0;
+#X connect 86 1 22 1;
+#X connect 88 0 23 0;
+#X connect 89 0 88 1;
+#X connect 89 0 92 1;
+#X connect 90 0 91 0;
+#X connect 91 0 64 1;
+#X connect 92 0 1 2;
+#X connect 93 1 38 0;
+#X connect 93 1 82 0;
+#X connect 94 0 42 0;
+#X connect 94 0 40 0;
+#X connect 94 0 46 0;
+#X restore 190 147 pd live-analysis;
+#X text 187 125 Real-time analysis;
+#N canvas 171 202 1110 506 init 0;
+#X obj -51 8 loadbang;
+#X obj -51 29 t b b b;
+#X floatatom 580 337 5 0 0 0 - - -;
+#X floatatom 395 337 5 0 0 0 - - -;
+#X floatatom 560 427 5 0 0 0 - - -;
+#X floatatom 375 427 5 0 0 0 - - -;
+#X msg 375 400 4096;
+#X msg 395 310 4096;
+#X msg 560 400 1;
+#X msg 580 310 4;
+#X obj 436 27 declare -path abstractions;
+#X text 370 227 Set overlap and window-size (in that order) in the
+number boxes below;
+#X text 443 243 If you're not sure about these settings \, read info
+in the [pd timbreGrains] sub-patch first.;
+#X obj 376 279 r lb2-\$0;
+#X obj 560 279 r lb1-\$0;
+#X obj 395 363 s synth-window-size-\$0;
+#X obj 580 363 s synth-overlap-\$0;
+#X obj 560 453 s analysis-overlap-\$0;
+#X obj 375 453 s analysis-window-size-\$0;
+#X obj -51 107 s lb3-\$0;
+#X obj -28 83 s lb2-\$0;
+#X obj -5 61 s lb1-\$0;
+#X obj 134 17 r lb3-\$0;
+#X obj -45 287 s search_center-set-\$0;
+#X msg -46 259 1250;
+#X obj 11 347 s neighborhood-set-\$0;
+#X obj 179 349 s reorient-set-\$0;
+#X msg 141 306 0;
+#X obj 189 323 s jump_prob-set-\$0;
+#X obj 196 296 s max_matches-set-\$0;
+#X obj -50 385 s master-volume-set-\$0;
+#X obj 108 398 s concat-level-set-\$0;
+#X obj -48 188 s rvb-time-set-\$0;
+#X obj 210 213 s grain-size-low-set-\$0;
+#X obj 200 263 s grain-size-hi-set-\$0;
+#X obj 225 162 s stutter_protect-set-\$0;
+#X msg 230 142 1;
+#X msg 204 33 \; pd dsp 1 \;;
+#X msg -44 166 0;
+#X msg 112 376 100;
+#X obj 755 74 f \$0;
+#X obj 756 46 loadbang;
+#X obj 755 99 s instance-\$2;
+#X text 820 45 init the instance to the control;
+#X msg 12 324 10;
+#X msg 156 265 0;
+#X msg 171 193 1;
+#X msg 197 236 800;
+#X msg 212 187 90;
+#X obj 698 22 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 701 466 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 740 139 r neighboorhoodMax-\$0;
+#X obj 740 169 s neighborhoodMax-\$2;
+#X text 877 142 Max neighboorhood;
+#X msg -46 359 90;
+#X obj 228 112 s activatein-\$0;
+#X msg 226 90 1;
+#X obj 326 111 s activateout-\$0;
+#X connect 0 0 1 0;
+#X connect 1 0 19 0;
+#X connect 1 1 20 0;
+#X connect 1 2 21 0;
+#X connect 2 0 16 0;
+#X connect 3 0 15 0;
+#X connect 4 0 17 0;
+#X connect 5 0 18 0;
+#X connect 6 0 5 0;
+#X connect 7 0 3 0;
+#X connect 8 0 4 0;
+#X connect 9 0 2 0;
+#X connect 13 0 7 0;
+#X connect 13 0 6 0;
+#X connect 14 0 8 0;
+#X connect 14 0 9 0;
+#X connect 22 0 37 0;
+#X connect 22 0 24 0;
+#X connect 22 0 44 0;
+#X connect 22 0 54 0;
+#X connect 22 0 39 0;
+#X connect 22 0 38 0;
+#X connect 22 0 36 0;
+#X connect 22 0 27 0;
+#X connect 22 0 48 0;
+#X connect 22 0 46 0;
+#X connect 22 0 45 0;
+#X connect 22 0 47 0;
+#X connect 22 0 56 0;
+#X connect 24 0 23 0;
+#X connect 27 0 26 0;
+#X connect 36 0 35 0;
+#X connect 38 0 32 0;
+#X connect 39 0 31 0;
+#X connect 40 0 42 0;
+#X connect 41 0 40 0;
+#X connect 44 0 25 0;
+#X connect 45 0 28 0;
+#X connect 46 0 29 0;
+#X connect 47 0 34 0;
+#X connect 48 0 33 0;
+#X connect 49 0 50 0;
+#X connect 51 0 52 0;
+#X connect 54 0 30 0;
+#X connect 56 0 55 0;
+#X connect 56 0 57 0;
+#X restore -76 102 pd init;
+#X obj 528 7 cnv 15 175 75 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#N canvas 800 91 482 634 INSTRUCTIONS 0;
+#X text 38 188 First \, here is what you need to do to hear the default
+sound example:;
+#X text 38 17 This patch uses the timbreID set of externals to analyze
+a given "source" sound file \, and (using carefully chosen grains from
+that source sound file) create an approximation of an input signal
+in real time. This is called concatenative synthesis \, but the generic
+term is granular synthesis. It seems to be called the former when the
+goal is to create an output signal that is somehow analogous to a given
+input signal. For example \, you might use this if you wanted to be
+able to speak into a microphone and hear a version of your voice built
+from violin samples. Of course \, the choices of input signal and source
+sound from which you generate an output are entirely up to you. This
+example patch starts with the voice/violin combination.;
+#X text 37 391 5) Adjust the level of the granular output and dry input
+so you can hear how they relate. Then try dropping the monitoring level
+of the dry input to 0 and see if you can hear its presence in the granular
+output alone.;
+#X text 37 230 1) In the Master controls panel \, click "Load-default-sound"
+to load the default audio corpus (you can load your own later).;
+#X text 37 320 3) Turn on the "Normalize" and "Analyze-input" toggles.
+;
+#X text 37 280 2) Click "Analyze". This will take a few seconds \,
+as it analyzes the entire loaded soundfile in non-real-time.;
+#X text 37 351 4) click the "open" message to [readsf~] in the upper
+left corner to start a loop of the input sample.;
+#X text 37 461 6) Open the [pd analysis-controls] subpatch for further
+controls over the real-time concatenative process.;
+#X text 37 501 Now you have some parameters to play with \, and there's
+the whole business of training the system on your own particular sound
+database \, which is accomplished in the same way. Just load your own
+sound for step 1). This patch has several sub-patches called "MORE-INFO"
+next to controls that require explanation.;
+#X restore 548 41 pd INSTRUCTIONS;
+#X text 538 17 ** READ THIS FIRST **;
+#X text 456 484 timbreID - William Brent 2011;
+#N canvas 120 60 1108 662 analysis-controls 0;
+#N canvas 325 292 949 494 MORE_INFO 0;
+#X text 17 8 When timbreID receives a new feature to compare against
+its database of previously stored instances \, it searches the entire
+database. The messages in this panel let you restrict that search.
+;
+#X text 17 360 You could also restrict the search in order to steer
+the synthesis toward a certain type of sound. If you know that the
+beginning of your source sound file has piano sounds \, and the end
+has violin sounds \, you might want to move search_center toward the
+latter half of the database to get violin-ish sounds. Or \, you might
+put it right in the middle to increase your chances of getting a hybrid
+of both.;
+#X text 17 310 You might restrict the search in this way in order to
+reduce CPU load. With thousands of instances \, repeated real time
+searches can be taxing.;
+#X text 17 70 "neighborhood" lets you specify the number of instances
+to search \, and the value of "search_center" is the center of that
+neighborhood. A simple example: with a database of only 11 instances
+\, neighborhood=7 \, and search_center=4 \, timbreID would only search
+instances 1 through 7 when trying to find a best match (4-3 on the
+low end and 4+3 on the high end).;
+#X text 492 129 Better still \, "reorient" automatically shifts the
+search_center based on the most recent match. Continuing with the simple
+example from above \, if reorient is active and instance 6 is found
+to be the best match \, search_center is automatically set to 6 \,
+and (because the neighborhood is still 7) the new search area is 3
+through 9.. So \, if your input signal suddenly changes character \,
+the system should gradually nudge it's way to the region in the source
+sound file that best suits the input. This assumes that the source
+file is not completely randomly assembled \, i.e. \, if the last part
+has violin sounds \, it should last for seconds rather than milliseconds.
+;
+#X text 492 302 Last \, "max_matches" potentially has an impact on
+how continuous the output sounds. If max_matches = 5 \, timbreID will
+find the top 5 matches \, and check to see how they compare with the
+grain from the previous match. If one of these 5 is a better match
+to the previous grain than the current input grain \, the previous
+grain is prioritized when it comes time to report the best match. Increasing
+max_matches will increase CPU load \, and if it gets too high the output
+will bear less of a resemblance to the input.;
+#X text 492 21 "jump_prob" lets you specify a probability value between
+0 and 1 determining the chance of reassigning search_center to a random
+location in the database. Neighbhorhood is unaffected. You could use
+this so that the sound doesn't get stuck using a particular range of
+source grains. There is also a "stutter_protect" option that does not
+allow the same match to be output twice in a row.;
+#X text 17 170 Note: if the combination of search_center and neighborhood
+reach past the boundaries of the database \, it wraps around to the
+beginning. So if you want to eliminate the possibility of choosing
+grains from the beginning of your source sound file \, make sure your
+neighborhood doesn't reach past the number of instances in your database.
+When you load your file \, feedback in Pd's post window will let you
+know how many instances have been loaded. You can also use timbreID's
+"print" method to post that information to the post window.;
+#X restore 18 -13 pd MORE_INFO;
+#N canvas 194 267 762 454 messaging 0;
+#X obj 53 365 s \$0-tID;
+#X obj 414 349 s \$0-tID;
+#X msg 528 291 stutter_protect \$1;
+#X msg 174 220 neighborhood \$1;
+#X obj 174 192 i;
+#X msg 53 161 search_center \$1;
+#X obj 76 135 i;
+#X msg 480 218 reorient \$1;
+#X msg 414 149 jump_prob \$1;
+#X msg 261 309 max_matches \$1;
+#X obj 261 281 + 1;
+#X text 51 25 Here we just get the data from the sliders in the main
+analysis control panel and send it to the appropriate messages for
+timbreID.;
+#X obj 53 111 r search_center-\$0;
+#X obj 174 170 r neighborhood-\$0;
+#X obj 261 259 r max_matches-\$0;
+#X obj 414 129 r jump_prob-\$0;
+#X obj 480 198 r reorient-\$0;
+#X obj 528 271 r stutter_protect-\$0;
+#X obj 67 195 print raro;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X connect 4 0 3 0;
+#X connect 5 0 0 0;
+#X connect 6 0 5 0;
+#X connect 7 0 1 0;
+#X connect 8 0 1 0;
+#X connect 9 0 0 0;
+#X connect 10 0 9 0;
+#X connect 12 0 6 0;
+#X connect 13 0 4 0;
+#X connect 14 0 10 0;
+#X connect 15 0 8 0;
+#X connect 16 0 7 0;
+#X connect 17 0 2 0;
+#X restore 31 300 pd messaging;
+#X obj 28 132 hradio 15 1 0 8 empty empty max-matches 0 -8 0 12 -262144
+-1 -1 1;
+#X obj 410 26 hsl 256 15 0 7000 0 0 empty empty search-center -2 -8
+0 12 -262144 -1 -1 4554 1;
+#X obj 19 35 tgl 15 0 empty empty reorient 17 7 0 12 -262144 -1 -1
+0 1;
+#X obj 159 33 tgl 15 0 empty empty stutter-protect 17 7 0 12 -262144
+-1 -1 1 1;
+#X obj 402 143 hsl 256 15 0 2453 0 0 empty empty neighborhood -2 -8
+0 12 -262144 -1 -1 104 1;
+#X obj 29 216 hsl 256 15 0 1 0 0 empty empty jump-prob -2 -8 0 12 -262144
+-1 -1 0 1;
+#X floatatom 401 68 10 0 0 0 - - -;
+#X floatatom 390 203 10 0 0 0 - - -;
+#X obj 180 285 hsl 256 15 25 300 0 0 empty empty grain-size-low -2
+-8 0 12 -262144 -1 -1 6027 1;
+#X floatatom 367 319 10 0 0 1 percent - -;
+#X obj 178 381 hsl 256 15 25 3000 0 0 empty empty grain-size-hi -2
+-8 0 12 -262144 -1 -1 6643 1;
+#X floatatom 328 414 10 0 0 1 percent - -;
+#X text 157 449 Use these controls to set lower & upper bounds on random
+grain size for each match. This will help break up any flutter you
+might hear from the grain enveloping that happens at a steady rate.
+;
+#X obj 407 48 s search_center-\$0;
+#X obj 406 -10 r search_center-set-\$0;
+#X obj 398 101 r neighborhood-set-\$0;
+#X obj 403 175 s neighborhood-\$0;
+#X obj 22 55 s reorient-\$0;
+#X obj 17 9 r reorient-set-\$0;
+#X obj 157 55 s stutter_protect-\$0;
+#X obj 154 6 r stutter_protect-set-\$0;
+#X obj 25 100 r max_matches-set-\$0;
+#X obj 26 153 s max_matches-\$0;
+#X obj 26 235 s jump_prob-\$0;
+#X obj 28 185 r jump_prob-set-\$0;
+#X obj 178 253 r grain-size-low-set-\$0;
+#X obj 176 305 s grain-size-low-\$0;
+#X obj 174 341 r grain-size-hi-set-\$0;
+#X obj 171 411 s grain-size-hi-\$0;
+#X floatatom 61 266 5 0 0 0 - - -;
+#X floatatom 360 -12 5 0 0 0 - - -;
+#X obj 380 59 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 563 -6 5 0 0 0 - - -;
+#X connect 2 0 24 0;
+#X connect 3 0 15 0;
+#X connect 3 0 8 0;
+#X connect 3 0 33 0;
+#X connect 4 0 19 0;
+#X connect 5 0 21 0;
+#X connect 6 0 18 0;
+#X connect 6 0 9 0;
+#X connect 7 0 25 0;
+#X connect 7 0 31 0;
+#X connect 10 0 28 0;
+#X connect 10 0 11 0;
+#X connect 12 0 30 0;
+#X connect 12 0 13 0;
+#X connect 16 0 3 0;
+#X connect 17 0 6 0;
+#X connect 20 0 4 0;
+#X connect 22 0 5 0;
+#X connect 23 0 2 0;
+#X connect 26 0 7 0;
+#X connect 27 0 10 0;
+#X connect 29 0 12 0;
+#X connect 32 0 3 0;
+#X connect 34 0 15 0;
+#X restore 190 167 pd analysis-controls;
+#X obj -78 329 s~ input-sig-\$0;
+#X obj -76 40 float \$1;
+#X obj -76 16 loadbang;
+#X obj 170 448 r master-volume-set-\$0;
+#X obj 169 560 s master-volume-\$0;
+#X obj 176 256 r concat-level-set-\$0;
+#X obj 177 295 s concat-level-\$0;
+#X obj -73 367 r input-monitor-set-\$0;
+#X obj -73 414 s input-monitor-\$0;
+#X obj -76 63 s instanceArg-\$0;
+#X obj 30 16 loadbang;
+#X obj 30 40 float \$0;
+#X obj 30 63 s instanceNr-\$0;
+#X obj 465 341 s normalize-\$0;
+#X obj -77 157 adc~ \$1;
+#X obj 132 11 loadbang;
+#X obj 132 62 s outputChannel-\$0;
+#X obj 132 35 float \$2;
+#X obj 657 203 loadbang;
+#X msg 657 226 0;
+#X msg 466 302 1;
+#X obj -68 537 outlet~;
+#X obj -56 221 inlet;
+#X obj 170 513 +;
+#X obj 212 491 t b f;
+#X text 454 499 Tangible Scores - Enrique Tomas 2014;
+#X obj -37 272 env~ 8192;
+#X obj -37 293 outlet;
+#X obj 477 206 r analyze-\$0;
+#X msg 477 230 bang;
+#X text 512 230 Analyze;
+#X obj 13 529 env~ 8192;
+#X obj 13 552 outlet;
+#X text 59 207 Activate input;
+#X text -14 219 Manual Gain Input;
+#X text 13 292 Input Volume Control;
+#X obj 465 283 r endedAnalysis-\$0;
+#X obj 717 142 r activate-\$0;
+#X obj 657 284 s analyzeInput-\$0;
+#X obj 428 376 print ended;
+#X obj -19 177 r activatein-\$0;
+#X obj 591 358 s activate-\$0;
+#X obj 727 183 s activate-out-sem-\$0;
+#X obj 718 399 sel 1;
+#X obj 718 445 s activatein-\$0;
+#X msg 718 421 1;
+#X obj -77 244 *~ 1;
+#X obj -77 199 *~;
+#X msg 727 163 1;
+#X obj 727 204 s activateout-\$0;
+#X obj 212 469 r master-volume-c-\$0;
+#X obj 764 338 r threshold-\$0;
+#X obj 593 317 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 566 409 s playnow-\$0;
+#X obj 591 337 del 3000;
+#X obj 481 429 s store-database-\$0;
+#X obj 366 408 s main-clock-\$0;
+#X text 203 401 start again live analysis;
+#X obj 784 282 r env-follow-\$0;
+#X obj -77 178 hip~ 60;
+#X connect 0 0 38 0;
+#X connect 1 0 34 0;
+#X connect 4 0 36 0;
+#X connect 8 0 77 1;
+#X connect 10 0 51 0;
+#X connect 10 0 61 0;
+#X connect 12 0 68 0;
+#X connect 14 0 16 0;
+#X connect 15 0 43 0;
+#X connect 16 0 59 0;
+#X connect 19 0 20 1;
+#X connect 19 0 73 0;
+#X connect 31 0 39 0;
+#X connect 32 0 31 0;
+#X connect 33 0 53 0;
+#X connect 35 0 4 0;
+#X connect 37 0 0 0;
+#X connect 40 0 41 0;
+#X connect 41 0 42 0;
+#X connect 44 0 89 0;
+#X connect 45 0 47 0;
+#X connect 47 0 46 0;
+#X connect 48 0 49 0;
+#X connect 49 0 12 0;
+#X connect 49 0 19 0;
+#X connect 50 0 15 0;
+#X connect 50 0 82 0;
+#X connect 50 0 86 0;
+#X connect 52 0 76 1;
+#X connect 53 0 1 0;
+#X connect 54 0 53 0;
+#X connect 54 1 53 1;
+#X connect 56 0 57 0;
+#X connect 58 0 59 0;
+#X connect 59 0 17 0;
+#X connect 61 0 62 0;
+#X connect 66 0 50 0;
+#X connect 66 0 69 0;
+#X connect 67 0 12 0;
+#X connect 67 0 19 0;
+#X connect 67 0 78 0;
+#X connect 70 0 8 0;
+#X connect 73 0 75 0;
+#X connect 75 0 74 0;
+#X connect 76 0 56 0;
+#X connect 76 0 30 0;
+#X connect 77 0 76 0;
+#X connect 78 0 72 0;
+#X connect 78 0 79 0;
+#X connect 80 0 54 0;
+#X connect 81 0 20 0;
+#X connect 82 0 84 0;
+#X connect 84 0 71 0;
+#X connect 84 0 83 0;
+#X connect 84 0 85 0;
+#X connect 88 0 19 0;
+#X connect 89 0 77 0;
