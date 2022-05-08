@@ -454,18 +454,16 @@ void sectionfour() {
     //Serial.println("final -7");
     brightness = 70;
            //MUEVEN A LOS AZULES
+      ledBlock(STEELBLUE, 61, 69);
+      ledBlock(STEELBLUE, 89, 97);
+      ledBlock(IVORY, 118, 121);
+      ledBlock(IVORY, 130, 133);    
       ledBlock(IVORY, 134, 135);  //LOS BLANCOS SE QUEDAN QUIETECITOS
       ledBlock(IVORY, 136, 138);
-      ledBlock(IVORY, 130, 133);
-      ledBlock(IVORY, 118, 121);
-      ledBlock(IVORY, 172, 175);
       ledBlock(IVORY, 155, 155);
-      ledBlock(IVORY, 176, 179);
       ledBlock(IVORY, 156, 157);
-
-  
-      ledBlock(STEELBLUE, 89, 97);    
-      ledBlock(STEELBLUE, 61, 69);
+      ledBlock(IVORY, 172, 175);
+      ledBlock(IVORY, 176, 179); 
 
       gotoledfull2(STEELBLUE, 108, 117, 23, 1);  
   }
@@ -473,86 +471,87 @@ void sectionfour() {
     //Serial.println("final -6");
     brightness = 70;
            //MUEVEN A LOS AZULES
+      ledBlock(STEELBLUE, 61, 69);
+      ledBlock(STEELBLUE, 89, 97);
+      ledBlock(STEELBLUE, 108, 117); 
+      ledBlock(IVORY, 118, 121);
+      ledBlock(IVORY, 130, 133);
       ledBlock(IVORY, 134, 135);  //LOS BLANCOS SE QUEDAN QUIETECITOS
       ledBlock(IVORY, 136, 138);
-      ledBlock(IVORY, 130, 133);
-      ledBlock(IVORY, 118, 121);
-      ledBlock(IVORY, 172, 175);
       ledBlock(IVORY, 155, 155);
-      ledBlock(IVORY, 176, 179);
       ledBlock(IVORY, 156, 157);
+      ledBlock(IVORY, 172, 175);    
+      ledBlock(IVORY, 176, 179);
+         
 
-  
-      ledBlock(STEELBLUE, 89, 97);    
-      ledBlock(STEELBLUE, 61, 69);
-      ledBlock(STEELBLUE, 108, 117);
-
-      gotoledfull2(STEELBLUE, 121, 129, 23, 1);  
+      gotoledfull2(STEELBLUE, 122, 129, 23, 1);  
   }
-  if (currentMillis - previousMillis  > 16400 && currentMillis - previousMillis < 16900) {
+  if (currentMillis - previousMillis  > 16400 && currentMillis - previousMillis < 17400) {
     //Serial.println("final -5");
     brightness = 70;
            //MUEVEN A LOS AZULES
+      ledBlock(STEELBLUE, 61, 69);
+      ledBlock(STEELBLUE, 89, 97);
+      ledBlock(STEELBLUE, 108, 117);
+      ledBlock(IVORY, 118, 121);
+      ledBlock(STEELBLUE, 122, 129);     
+      ledBlock(IVORY, 130, 133);
       ledBlock(IVORY, 134, 135);  //LOS BLANCOS SE QUEDAN QUIETECITOS
       ledBlock(IVORY, 136, 138);
-      ledBlock(IVORY, 130, 133);
-      ledBlock(IVORY, 118, 121);
-      ledBlock(IVORY, 172, 175);
       ledBlock(IVORY, 155, 155);
-      ledBlock(IVORY, 176, 179);
       ledBlock(IVORY, 156, 157);
-
-  
-      ledBlock(STEELBLUE, 89, 97);    
-      ledBlock(STEELBLUE, 61, 69);
-      ledBlock(STEELBLUE, 108, 117);
-      ledBlock(STEELBLUE, 121, 129);
+      ledBlock(IVORY, 172, 175);
+      ledBlock(IVORY, 176, 179);
+         
 
       gotoledfull2(STEELBLUE, 139, 154, 23, 1);  
   }
-  if (currentMillis - previousMillis  > 16900 && currentMillis - previousMillis < 17400) {
-    //Serial.println("final -4");
+  if (currentMillis - previousMillis  > 17400 && currentMillis - previousMillis < 18400) {
+    Serial.println("final -4");
     brightness = 70;
            //MUEVEN A LOS AZULES
+      
+      ledBlock(STEELBLUE, 61, 69);
+      ledBlock(STEELBLUE, 89, 97);
+      ledBlock(STEELBLUE, 108, 117);
+
+      
+      
+      ledBlock(IVORY, 118, 120);
+      ledBlock(STEELBLUE, 121, 129);
+      ledBlock(IVORY, 130, 133);
       ledBlock(IVORY, 134, 135);  //LOS BLANCOS SE QUEDAN QUIETECITOS
       ledBlock(IVORY, 136, 138);
-      ledBlock(IVORY, 130, 133);
-      ledBlock(IVORY, 118, 121);
-      ledBlock(IVORY, 172, 175);
-      ledBlock(IVORY, 155, 155);
-      ledBlock(IVORY, 176, 179);
-      ledBlock(IVORY, 156, 157);
-
-  
-      ledBlock(STEELBLUE, 89, 97);    
-      ledBlock(STEELBLUE, 61, 69);
-      ledBlock(STEELBLUE, 108, 117);
-      ledBlock(STEELBLUE, 121, 129);
       ledBlock(STEELBLUE, 139, 154);
+      ledBlock(IVORY, 155, 155);
+      ledBlock(IVORY, 156, 157);
+      ledBlock(IVORY, 172, 175);   
+      ledBlock(IVORY, 176, 179);
+       
 
       gotoledfull2(STEELBLUE, 158, 171, 23, 1);  
   }
-  if (currentMillis - previousMillis  > 17400 && currentMillis - previousMillis < 18200) {
-    //Serial.println("final -3");
+  if (currentMillis - previousMillis  > 18400 && currentMillis - previousMillis < 19400) {
+    Serial.println("final -3");
     brightness = 70;
            //MUEVEN A LOS AZULES
+      ledBlock(STEELBLUE, 61, 69);
+      ledBlock(STEELBLUE, 89, 97);
+      ledBlock(STEELBLUE, 108, 117);
+      ledBlock(IVORY, 118, 120);
+      ledBlock(STEELBLUE, 121, 129);
+      ledBlock(IVORY, 130, 133);
       ledBlock(IVORY, 134, 135);  //LOS BLANCOS SE QUEDAN QUIETECITOS
       ledBlock(IVORY, 136, 138);
-      ledBlock(IVORY, 130, 133);
-      ledBlock(IVORY, 118, 121);
-      ledBlock(IVORY, 172, 175);
-      ledBlock(IVORY, 155, 155);
-      ledBlock(IVORY, 176, 179);
-      ledBlock(IVORY, 156, 157);
-
-  
-      ledBlock(STEELBLUE, 89, 97);    
-      ledBlock(STEELBLUE, 61, 69);
-      ledBlock(STEELBLUE, 108, 117);
-      ledBlock(STEELBLUE, 121, 129);
       ledBlock(STEELBLUE, 139, 154);
+      //ledBlock(IVORY, 155, 155);
+      //ledBlock(IVORY, 156, 157);
+      ledBlock(IVORY, 155, 157);
+      
       ledBlock(STEELBLUE, 158, 171);
-      //ledBlock(STEELBLUE, 180, 198);
+      ledBlock(IVORY, 172, 175);   
+      ledBlock(IVORY, 176, 179);
+      
 
       gotoledfull2(STEELBLUE, 180, 197, 23, 1);  
       note = true;
@@ -583,66 +582,73 @@ void sectionfour() {
       pixel_loc[3] = 0;
       note = true;
   }*/
-  if (currentMillis - previousMillis  > 18200 && currentMillis - previousMillis < 21200) {
-    //Serial.println("final -2");
+  if (currentMillis - previousMillis  > 19400 && currentMillis - previousMillis < 19900) {
+    Serial.println("final -2");
     brightness = 70;
            //MUEVEN A LOS AZULES
+      ledBlock(STEELBLUE, 61, 69);
+      ledBlock(STEELBLUE, 89, 97);
+      ledBlock(STEELBLUE, 108, 117);
+      ledBlock(IVORY, 118, 120);
+      ledBlock(STEELBLUE, 121, 129);
+      ledBlock(IVORY, 130, 133);
       ledBlock(IVORY, 134, 135);  //LLENAR EL RESTO DE LAS SUPERFICIES
       ledBlock(IVORY, 136, 138);
-      ledBlock(IVORY, 130, 133);
-      ledBlock(IVORY, 118, 121);
-      ledBlock(IVORY, 172, 175);
-      ledBlock(IVORY, 155, 155);
-      ledBlock(IVORY, 176, 179);
-      ledBlock(IVORY, 156, 157);
-
-  
-      ledBlock(STEELBLUE, 89, 97);    
-      ledBlock(STEELBLUE, 61, 69);
-      ledBlock(STEELBLUE, 108, 117);
-      ledBlock(STEELBLUE, 121, 129);
       ledBlock(STEELBLUE, 139, 154);
+      //ledBlock(IVORY, 155, 155);
+      //ledBlock(IVORY, 156, 157);
+      ledBlock(IVORY, 155, 157);
       ledBlock(STEELBLUE, 158, 171);
+      ledBlock(IVORY, 172, 175);
+      ledBlock(IVORY, 176, 179);
       ledBlock(STEELBLUE, 180, 198);
-      //ledBlock(STEELBLUE, 0, 108);
-
-      gotoledfull2(STEELBLUE, 198, 298, 23, 1);  
-      //gotoledfull2(STEELBLUE, 0, 108, 23, 3); 
       
 
+      //gotoledfull2(STEELBLUE, 199, 298, 23, 1);  //paraece que hay bug, lo quito 10.3.22
+      ledBlock(STEELBLUE, 189, 298);
       
+
+      note = true;
       
   } //enciende izquierda hacia full
-  if (currentMillis - previousMillis  > 21200 && currentMillis - previousMillis < 27500) {
-    //Serial.println("final -1");
+  if (currentMillis - previousMillis  > 19900 && currentMillis - previousMillis < 27500) {
+    Serial.println("final -1");
     brightness = 70;
            //MUEVEN A LOS AZULES
-       
-      ledBlock(IVORY, 134, 135);  //LLENAR EL RESTO DE LAS SUPERFICIES
-      ledBlock(IVORY, 136, 138);
-      ledBlock(IVORY, 130, 133);
-      ledBlock(IVORY, 118, 121);
-      ledBlock(IVORY, 172, 175);
-      ledBlock(IVORY, 155, 155);
-      ledBlock(IVORY, 176, 179);
-      ledBlock(IVORY, 156, 157);
 
+      //ledBlock(STEELBLUE, 0, 107);
+      //ledBlock(STEELBLUE, 108, 117);
+      ledBlock(STEELBLUE, 0, 117);
+      ledBlock(IVORY, 118, 121);
+      ledBlock(STEELBLUE, 122, 129);
+      
+      
+      //ledBlock(IVORY, 130, 133);
+      //ledBlock(IVORY, 134, 135);  //LLENAR EL RESTO DE LAS SUPERFICIES
+      //ledBlock(IVORY, 136, 138);
+      ledBlock(IVORY, 130, 138);
+      ledBlock(STEELBLUE, 139, 154);
+      //ledBlock(IVORY, 155, 155);
+      //ledBlock(IVORY, 156, 157);
+      ledBlock(IVORY, 155, 157);
+      ledBlock(STEELBLUE, 158, 171);
+      //ledBlock(IVORY, 172, 175);    
+      //ledBlock(IVORY, 176, 179);
+      ledBlock(IVORY, 172, 179);
+      //ledBlock(STEELBLUE, 180, 198);
+      //ledBlock(STEELBLUE, 199, 298);
+      ledBlock(STEELBLUE, 180, 298);
   
       //ledBlock(STEELBLUE, 89, 97);    
       //ledBlock(STEELBLUE, 61, 69);
-      ledBlock(STEELBLUE, 108, 117);
-      ledBlock(STEELBLUE, 121, 129);
-      ledBlock(STEELBLUE, 139, 154);
-      ledBlock(STEELBLUE, 158, 171);
-      ledBlock(STEELBLUE, 180, 198);
-      ledBlock(STEELBLUE, 0, 107);
-      ledBlock(STEELBLUE, 199, 298);
+      
+
 
       //gotoledfull2(STEELBLUE, 10, 40, 23, 1); 
       //ledBlock(STEELBLUE, 70, 88); 
       //ledBlock(STEELBLUE, 98, 108); 
 
-      note = true;
+      //note = true;
       if(note) {
          
         note = false;
@@ -721,7 +727,7 @@ void sectionfour() {
   }
   */
   if (currentMillis - previousMillis  > 27500 && currentMillis - previousMillis < 50200) {
-    //Serial.println("final - 0");
+    Serial.println("final - 0");
     brightness = 70;
            //MUEVEN A LOS AZULES
       /* 
@@ -749,29 +755,48 @@ void sectionfour() {
       //ledBlock(STEELBLUE, 70, 88); 
       //ledBlock(STEELBLUE, 98, 108);*/
 
-      ledBlock(IVORY, 134, 135);  //LLENAR EL RESTO DE LAS SUPERFICIES
-      ledBlock(IVORY, 136, 138);
-      ledBlock(IVORY, 130, 133);
-      ledBlock(IVORY, 118, 121);
-      ledBlock(IVORY, 172, 175);
-      ledBlock(IVORY, 155, 155);
-      ledBlock(IVORY, 176, 179);
-      ledBlock(IVORY, 156, 157);
-
-  
-      //ledBlock(STEELBLUE, 89, 97);    
-      //ledBlock(STEELBLUE, 61, 69);
-      ledBlock(STEELBLUE, 108, 117);
+      //ledBlock(STEELBLUE, 0, 107);
+      //ledBlock(STEELBLUE, 108, 117);
+      
+      ledBlock(STEELBLUE, 0, 117);
+      
+      ledBlock(IVORY, 118, 120);
+      
       ledBlock(STEELBLUE, 121, 129);
+      
+      
+         
+      //ledBlock(IVORY, 130, 133);
+      //ledBlock(IVORY, 134, 135);  //LLENAR EL RESTO DE LAS SUPERFICIES
+      //ledBlock(IVORY, 136, 138);
+
+      ledBlock(IVORY, 130, 138);
+      
       ledBlock(STEELBLUE, 139, 154);
+      
+      //ledBlock(IVORY, 155, 155); 
+      //ledBlock(IVORY, 156, 157);
+      
+      ledBlock(IVORY, 155, 157);
+       
       ledBlock(STEELBLUE, 158, 171);
-      ledBlock(STEELBLUE, 180, 198);
-      ledBlock(STEELBLUE, 0, 107);
-      ledBlock(STEELBLUE, 199, 298); 
+         
+      //ledBlock(IVORY, 172, 175);
+      //ledBlock(IVORY, 176, 179);
+      
+      ledBlock(IVORY, 172, 179);
+           
+      //ledBlock(STEELBLUE, 180, 198);
+      //ledBlock(STEELBLUE, 199, 298); 
+      
+      ledBlock(STEELBLUE, 180, 298);
+
+      note = true;
+      
   }
   if (currentMillis - previousMillis  > 50200 && currentMillis - previousMillis < 53250) {   
-      //Serial.println("end of section 5");
-       note = true;
+      Serial.println("end of section 5");
+       
        if(note) {
          
         note = false;
@@ -786,7 +811,7 @@ void sectionfour() {
        brightness=0;
        previousMillis = millis();
 
-       sec5 = sec4 + 50250; 
+       sec5 = sec4 + 53250; 
 
         section = 5;                        //VAMONOS A LA SIGUIENTE SECCION
         Serial.println("SECTION 5");     

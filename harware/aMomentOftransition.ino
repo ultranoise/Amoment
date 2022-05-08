@@ -207,6 +207,17 @@ void loop() {
       //sectiontwo();  //ADDED BY QUIQUE MARZO 2022
     }
     if (inputString =="3") { //PRIMER SOLO CON TANGIBLE SCORES
+
+      //this below is new (2.5.22)
+      sec2_2= 8100;
+      
+      brightness=0;
+      previousMillis = millis();
+
+        sec3 = sec2_2 + 42050;  //(50000)
+        s1=true;
+        s2 = true;
+      //...until here (2.5.22)
       section = 3;
       Serial.println("SECTION 3");
 
@@ -217,12 +228,14 @@ void loop() {
      
       //leds.setBrightness(0);
       //leds.show();
+      /*
       brightness=0;
       previousMillis = millis();
 
       sec3 = sec2_2 + 42050;  //(50000)
       s1=true;
       s2 = true;
+      */
     }
 
     if (inputString =="4") { //SOLO LUCES DULCE

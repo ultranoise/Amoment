@@ -83,12 +83,13 @@ void sectionthree() {
       //Serial.println("1");       
    }
    if (currentMillis - previousMillis  > 16500 && currentMillis - previousMillis < 17500) { 
+    Serial.println("crec -12");
     brightness = 40;  
       ledBlock(IVORY, 203, 207);
       ledBlock(IVORY, 235, 237); 
       ledBlock(IVORY, 148, 150);  
       ledBlock(IVORY, 128, 133);
-      ledBlock(IVORY, 235, 237);
+      //ledBlock(IVORY, 235, 237);
       ledBlock(IVORY, 33, 34);
       ledBlock(IVORY, 84, 88);
       ledBlock(IVORY, 58, 60);
@@ -98,20 +99,21 @@ void sectionthree() {
       //Serial.println("2");
                  
    }
-   if (currentMillis - previousMillis  > 17500 && currentMillis - previousMillis < 18500) {   
+   if (currentMillis - previousMillis  > 17500 && currentMillis - previousMillis < 18500) {
+    Serial.println("crec -11");   
     brightness = 40;
       //ledBlock(IVORY, 209, 221);
       ledBlock(IVORY, 115, 116); 
       ledBlock(IVORY, 203, 207);  
       ledBlock(IVORY, 128, 133);
       ledBlock(IVORY, 58, 60);
-      ledBlock(IVORY, 203, 207);
+      //ledBlock(IVORY, 203, 207);
       ledBlock(IVORY, 148, 150); 
       ledBlock(IVORY, 235, 237); 
       ledBlock(IVORY, 115, 116);  
       //ledBlock(IVORY, 209, 221);
-      ledBlock(IVORY, 128, 133);
-      ledBlock(IVORY, 235, 237);
+      //ledBlock(IVORY, 128, 133);
+      //ledBlock(IVORY, 235, 237);
       ledBlock(IVORY, 33, 34);
       ledBlock(IVORY, 84, 88);
       ledBlock(IVORY, 161, 163);
@@ -123,22 +125,23 @@ void sectionthree() {
                
    }
    if (currentMillis - previousMillis  > 18500 && currentMillis - previousMillis < 19500) { 
+    Serial.println("crec -10");
     brightness = 40;  
       //ledBlock(IVORY, 209, 221);     
       ledBlock(IVORY, 203, 207);  
       ledBlock(IVORY, 164, 166);  
       ledBlock(IVORY, 35, 57); 
-      ledBlock(IVORY, 203, 207);
+      //ledBlock(IVORY, 203, 207);
       ledBlock(IVORY, 148, 150); 
       ledBlock(IVORY, 235, 237); 
       ledBlock(IVORY, 115, 116);  
       //ledBlock(IVORY, 209, 221);
       ledBlock(IVORY, 128, 133);
-      ledBlock(IVORY, 235, 237);
+      //ledBlock(IVORY, 235, 237);
       ledBlock(IVORY, 33, 34);
       ledBlock(IVORY, 84, 88);
       ledBlock(IVORY, 58, 60);
-      ledBlock(IVORY, 35, 57);
+      //ledBlock(IVORY, 35, 57);
       ledBlock(IVORY, 161, 163); 
       ledBlock(IVORY, 223, 224);
       ledBlock(IVORY, 233, 233);
@@ -147,17 +150,18 @@ void sectionthree() {
       //Serial.println("33"); 
                
    }
-   if (currentMillis - previousMillis  > 19500 && currentMillis - previousMillis < 21500) {  
+   if (currentMillis - previousMillis  > 19500 && currentMillis - previousMillis < 21500) { 
+    Serial.println("crec -9"); 
     brightness = 40; 
       ledBlock(IVORY, 283, 293);
       ledBlock(IVORY, 115, 116);
-      ledBlock(IVORY, 283, 293); 
+      //ledBlock(IVORY, 283, 293); 
       ledBlock(IVORY, 33, 34);  
        //ledBlock(IVORY, 209, 221);
       ledBlock(IVORY, 35, 57); 
       ledBlock(IVORY, 203, 207); 
       ledBlock(IVORY, 164, 166);
-      ledBlock(IVORY, 33, 34);
+      //ledBlock(IVORY, 33, 34);
       ledBlock(IVORY, 84, 88);
       ledBlock(IVORY, 148, 150); 
       ledBlock(IVORY, 58, 60);
@@ -174,22 +178,23 @@ void sectionthree() {
    }
 
    //ahora apareecen los de enmedio
-   if (currentMillis - previousMillis  > 21500 && currentMillis - previousMillis < 22500) {  
+   if (currentMillis - previousMillis  > 21500 && currentMillis - previousMillis < 22500) {
+    Serial.println("crec -8");  
     brightness = 40; 
       ledBlock(IVORY, 283, 293);
-      ledBlock(IVORY, 115, 16);    
+      //ledBlock(IVORY, 115, 16);    
       ledBlock(IVORY, 33, 34); 
       ledBlock(IVORY, 35, 57);  
-      ledBlock(IVORY, 35, 57);
-      ledBlock(IVORY, 283, 293);
+      //ledBlock(IVORY, 35, 57);
+      //ledBlock(IVORY, 283, 293);
       ledBlock(IVORY, 115, 116);
-      ledBlock(IVORY, 283, 293); 
-      ledBlock(IVORY, 33, 34);  
-       ledBlock(IVORY, 209, 221);
-      ledBlock(IVORY, 35, 57); 
+      //ledBlock(IVORY, 283, 293); 
+      //ledBlock(IVORY, 33, 34);  
+      ledBlock(IVORY, 209, 221);
+      //ledBlock(IVORY, 35, 57); 
       ledBlock(IVORY, 203, 207); 
       ledBlock(IVORY, 164, 166); 
-      ledBlock(IVORY, 33, 34);
+      //ledBlock(IVORY, 33, 34);
       ledBlock(IVORY, 84, 88);   
       ledBlock(IVORY, 148, 150); 
       ledBlock(IVORY, 58, 60);
@@ -207,7 +212,8 @@ void sectionthree() {
       //Serial.println("5");
        
    }
-   if (currentMillis - previousMillis  > 22500 && currentMillis - previousMillis < 23500) {   
+   if (currentMillis - previousMillis  > 22500 && currentMillis - previousMillis < 23500) { 
+    Serial.println("crec -7");  
     brightness = 40;
       ledBlock(IVORY, 118, 121); 
       ledBlock(IVORY, 279, 280);  
@@ -217,12 +223,12 @@ void sectionthree() {
       ledBlock(IVORY, 283, 293);
       ledBlock(IVORY, 115, 116);
       ledBlock(IVORY, 283, 293); 
-      ledBlock(IVORY, 33, 34);  
-       ledBlock(IVORY, 209, 221);
-      ledBlock(IVORY, 35, 57); 
+      //ledBlock(IVORY, 33, 34);  
+      ledBlock(IVORY, 209, 221);
+      //ledBlock(IVORY, 35, 57); 
       ledBlock(IVORY, 203, 207); 
       ledBlock(IVORY, 164, 166); 
-      ledBlock(IVORY, 33, 34);
+      //ledBlock(IVORY, 33, 34);
       ledBlock(IVORY, 84, 88);
       ledBlock(IVORY, 148, 150);
       ledBlock(IVORY, 58, 60); 
@@ -240,6 +246,7 @@ void sectionthree() {
       //Serial.println("6");       
    }
    if (currentMillis - previousMillis  > 23500 && currentMillis - previousMillis < 24500) { 
+    Serial.println("crec -6");
     brightness = 40;  
       ledBlock(IVORY, 172, 175);    
       ledBlock(IVORY, 118, 121); 
@@ -249,14 +256,14 @@ void sectionthree() {
       ledBlock(IVORY, 225, 231); 
       ledBlock(IVORY, 283, 293);
       ledBlock(IVORY, 115, 116);
-      ledBlock(IVORY, 283, 293); 
+      //ledBlock(IVORY, 283, 293); 
       ledBlock(IVORY, 33, 34);  
-       ledBlock(IVORY, 209, 221);
-      ledBlock(IVORY, 35, 57); 
+      ledBlock(IVORY, 209, 221);
+      //ledBlock(IVORY, 35, 57); 
       ledBlock(IVORY, 203, 207); 
       ledBlock(IVORY, 164, 166);  
-      ledBlock(IVORY, 33, 34);
-      ledBlock(IVORY, 84, 88); 
+      //ledBlock(IVORY, 33, 34);
+      //ledBlock(IVORY, 84, 88); 
       ledBlock(IVORY, 58, 60);  
       ledBlock(IVORY, 161, 163);  
       ledBlock(IVORY, 142, 145);
@@ -267,7 +274,8 @@ void sectionthree() {
       ledBlock(IVORY, 89, 97);
       ledBlock(IVORY, 244, 258); 
    }
-   if (currentMillis - previousMillis  > 24500 && currentMillis - previousMillis < 25500) {  
+   if (currentMillis - previousMillis  > 24500 && currentMillis - previousMillis < 25500) {
+    Serial.println("crec -5");  
     brightness = 40; 
       ledBlock(IVORY, 164, 166);  
       ledBlock(IVORY, 172, 175);    
@@ -288,6 +296,7 @@ void sectionthree() {
       ledBlock(IVORY, 244, 258); 
    }
    if (currentMillis - previousMillis  > 25500 && currentMillis - previousMillis < 26500) { 
+    Serial.println("crec -4");
     brightness = 40;  
       ledBlock(IVORY, 122, 127);
       ledBlock(IVORY, 164, 166);  
@@ -303,12 +312,13 @@ void sectionthree() {
       ledBlock(IVORY, 161, 163);   
       ledBlock(IVORY, 223, 224);
       ledBlock(IVORY, 233, 233);
-      ledBlock(IVORY, 19, 22);
+      //ledBlock(IVORY, 19, 22);
       ledBlock(IVORY, 89, 97);  
       ledBlock(IVORY, 283, 293);
       ledBlock(IVORY, 244, 258); 
    }
    if (currentMillis - previousMillis  > 26500 && currentMillis - previousMillis < 27500) { 
+    Serial.println("crec -3");
     brightness = 40;  
       ledBlock(IVORY, 176, 179);  
       ledBlock(IVORY, 122, 127);
@@ -330,7 +340,8 @@ void sectionthree() {
       ledBlock(IVORY, 283, 293);  
       ledBlock(IVORY, 244, 258);      
    }
-   if (currentMillis - previousMillis  > 27500 && currentMillis - previousMillis < 28500) {   
+   if (currentMillis - previousMillis  > 27500 && currentMillis - previousMillis < 28500) { 
+    Serial.println("crec -2");  
     brightness = 40;
       ledBlock(IVORY, 139, 141);  
       ledBlock(IVORY, 122, 127);
@@ -354,6 +365,7 @@ void sectionthree() {
       ledBlock(IVORY, 244, 258);     
    }
    if (currentMillis - previousMillis  > 28500 && currentMillis - previousMillis < 29500) {   
+    Serial.println("crec -1");
     brightness = 40;
       ledBlock(IVORY, 139, 141);  
       ledBlock(IVORY, 122, 127);
@@ -370,7 +382,7 @@ void sectionthree() {
       ledBlock(IVORY, 294, 295); 
       ledBlock(IVORY, 35, 57); 
       ledBlock(IVORY, 225, 231); 
-      ledBlock(IVORY, 58, 60);   
+      //ledBlock(IVORY, 58, 60);   
       ledBlock(IVORY, 161, 163); 
       ledBlock(IVORY, 142, 145);
       ledBlock(IVORY, 180, 182);   
@@ -409,7 +421,7 @@ void sectionthree() {
         
        //dimin(40,15);
        brightness = 40;
-       
+       Serial.println("fin -3");
        gotoledfull2(IVORY, 0, 32, 23, 4);
        gotoledfull2(IVORY, 109, 152, 23, 5);
        gotoledfull2(IVORY, 199, 242, 23, 6);
@@ -417,9 +429,10 @@ void sectionthree() {
        //Serial.println("1");
   
    }
-   if (currentMillis - previousMillis  > 35500 && currentMillis - previousMillis < 41500) {   
+   if (currentMillis - previousMillis  > 35500 && currentMillis - previousMillis < 43000) {   
        //dimin(40,15);
        //brightness = 40;
+       Serial.println("fin -2");
        gotoledfull2(IVORY, 33, 76, 23, 1);
        gotoledfull2(IVORY, 152, 178, 23, 2);
        gotoledfull2(IVORY, 243, 279, 23, 3);
@@ -427,16 +440,17 @@ void sectionthree() {
        //Serial.println("11");
   
    }
-   if (currentMillis - previousMillis  > 39500 && currentMillis - previousMillis < 44500) {   
+   if (currentMillis - previousMillis  > 43000 && currentMillis - previousMillis < 46500) {   
        //dimin(40,15);
        //brightness = 40;
+       Serial.println("fin -1");
        gotoledfull2(IVORY, 77, 107, 23, 4);
        gotoledfull2(IVORY, 153, 197, 23, 5);
        gotoledfull2(IVORY, 244, 298, 23, 6);
        //dimout(0,50);
        //Serial.println("111");
    }
-   if (currentMillis - previousMillis  > 44500 && currentMillis - previousMillis < 51500) {   
+   if (currentMillis - previousMillis  > 46500 && currentMillis - previousMillis < 51500) {   
        //dimin(40,15);
        brightness = 40;
       if(s2){
@@ -448,7 +462,7 @@ void sectionthree() {
        
        gotoledfull2(IVORY, 0, 108, 23, 4);
        gotoledfull2(IVORY, 109, 198, 23, 2);
-       gotoledfull2(IVORY, 198, 298, 23, 3);
+       gotoledfull2(IVORY, 199, 298, 23, 3);
        note =true;
        //Serial.println("1111");
    }
@@ -497,4 +511,3 @@ void sectionthree() {
 
    
 } ///END OF SECTION THREE
-
